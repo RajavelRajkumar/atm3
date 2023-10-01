@@ -1,24 +1,27 @@
-atm="1234"
+pin=1234
 card="canara"
 balance=40000
-atm=input("enter the pin:")
-if atm=="1234":
+card=input("enter the card name:")
+if card=="canara":
+    print("""1.withdrawal \n2.balance \n3.deposite""")
     program=input("ENTER THE CHOICE:")
     match program:
         case"withdrawal":
             print("WELCOME TO OUR ATM")
-            print("insert your card")
-            card=input("enter your card name:")
-            if card=="canara":
-                print("your card is valid")
+            pin=int(input("enter your pin:"))
+            if pin==1234:
+                print("your pin is valid")
             else :
-                card!="canara"
-                print("invalid card")
-            if card=="canara":
+                print("invalid pin")
+            if pin==1234:
                 amount=int(input("ENTER THE AMOUNT:"))
-                print("COLLECT YOUR AMOUNT:",amount)
-                print( "BALANCE:",balance-amount)
-                print("THANK YOU")
+                if(amount<=balance):
+                    print("COLLECT YOUR AMOUNT:",amount)
+                    print( "BALANCE:",balance-amount)
+                    print("THANK YOU")
+                else:
+                    print("insufficient amount")
+            
         case"balance":
             print("your balance",balance)
         case"deposite":
